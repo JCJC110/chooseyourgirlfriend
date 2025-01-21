@@ -1,6 +1,6 @@
 @font-face {
 	font-family: bubble;
-	src: url("/fonts/atop-font/Atop-R99O3.ttf") format('truetype');
+	src: url("fonts/atop-font/Atop-R99O3.ttf") format('truetype');
 	font-weight: normal;
 }
 @keyframes growShrink {
