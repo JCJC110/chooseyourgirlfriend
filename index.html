@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Choose your girlfriend</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                const taylorswiftmove = document.querySelector('#taylorswiftpreview');
+                const textContainer = document.getElementById('text-container');
+                let clickcount = 0;
+
+                const positions = [
+                    { top: '700px', left: '200px' },
+                    { top: '-100px', left: '100px' },
+                    { top: '250px', left: '100px' },
+                    { top: '0px', left: '0px' } // Original position
+                ];
+
+                let currentindex = 0;
+
+                taylorswiftmove.addEventListener('click', function(){
+                    clickcount++;
+                    if(clickcount == 4){
+                        window.location.href = 'page4.html';
+                        return;
+                    }
+                    currentindex = (currentindex + 1) % positions.length;
+                    const newPosition = positions[currentindex];
+                    taylorswiftmove.style.top = newPosition.top;
+                    taylorswiftmove.style.left = newPosition.left;
+
+                    const nooText = document.createElement('div');
+                    nooText.textContent = 'no pleassee';
+                    nooText.className = 'noo-text';
+                    nooText.style.fontSize = `${20 + clickcount * 5}px`; // Increase font size with each click
+
+                    // Position the text at the center of the screen
+                    nooText.style.top = '50%';
+                    nooText.style.left = '50%';
+                    nooText.style.fontFamily = 'bubble';
+                    nooText.style.color = 'red';
+
+                    textContainer.appendChild(nooText);
+
+                    // Optional: Remove the text after a short delay
+                    setTimeout(() => {
+                        nooText.remove();
+                    }, 1000); // Remove text after 2 seconds
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="title-title-div">
+            <h1 id="main-title">Choose your girlfriend</h1>
+        </div>
+        <div class="all-preview">
+            <div class = "preview">
+                <div class="image-container">
+                    <a href="page2.html">
+                        <img src ="/photos/1stimg.png" class = "firstimage">
+                    </a>
+                </div>
+                <div class="preview-txt">
+                    <p class="preview-name">Your Ex</p>
+                </div>
+            </div>
+            <div class = "preview">
+                <div class="image-container">
+                    <a href="page3.html">
+                        <img src ="/photos/2ndimg.png" class = "firstimage">
+                    </a>
+                </div>
+                <div class="preview-txt">
+                    <p class="preview-name">ME</p>
+                </div>
+            </div>
+                <div class = "preview">
+                    <div class="image-container" id="taylorswiftpreview">
+                        <div>
+                            <img src ="/photos/tswift.png" class = "firstimage">
+                        </div>
+                    </div>
+                    <div class="preview-txt">
+                        <p class="preview-name">Taylor Swift</p>
+                        <div id="text-container"></div>
+                    </div>
+                </div>
+
+
+        </div>
+    </body>
+</html>
